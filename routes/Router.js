@@ -6,6 +6,14 @@ const Router = express.Router();
 const { User } = require("../models/user");
 const auth = require("../middleware/auth");
 
+
+
+Router.get("/home",(req,res)=>{
+  res.send("Home")
+})
+
+
+
 Router.get("/adduser/me", auth, async (req, res) => {
   let user = await User.findOne({ email: req.body.email });
   if (!user) {
